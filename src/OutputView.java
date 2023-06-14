@@ -13,4 +13,16 @@ public class OutputView {
     public void inValidSizeMessage() {
         System.out.println(ERROR_MESSAGE + "숫자는 4개만 입력하실 수 있습니다." + RETRY_MESSAGE);
     }
+
+    public void gamePlayMessage(int strike, int ball) {
+        if (strike + ball == 0) {
+            System.out.println("Nothing");
+        } else if (strike == 0){
+            System.out.println(ball + "볼");
+        } else if (ball == 0) {
+            System.out.println(strike + "스트라이크");
+        } else {
+            System.out.println(strike + "스트라이크 " + ball + "볼");
+        }
+    }
 }
