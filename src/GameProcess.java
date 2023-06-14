@@ -14,4 +14,26 @@ public class GameProcess {
     public void setInput(int[] input) {
         this.input = input;
     }
+
+    public int getStrike() {
+        int strike = 0;
+        for (int i = 0; i<4; i++) {
+            if (answer[i] == input[i]) {
+                strike++;
+            }
+        }
+        return strike;
+    }
+
+    public int getBall() {
+        int ball = 0;
+        for (int i = 0; i<4; i++) {
+            for (int j = 0; j<4; j++) {
+                if (i != j && answer[i] == input[j]) {
+                    ball++;
+                }
+            }
+        }
+        return ball;
+    }
 }
