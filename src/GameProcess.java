@@ -1,18 +1,22 @@
+import java.io.IOException;
+
 public class GameProcess {
     int[] answer;
     int[] input;
     NumberGenerator n = new RandomNumberGenerator();
+    InputView iv = new InputView();
 
     GameProcess() {
         this.answer = n.numbers();
     }
 
+
     public int[] getAnswer() {
         return answer;
     }
 
-    public void setInput(int[] input) {
-        this.input = input;
+    public void setInput() throws IOException {
+        this.input = iv.userInput();
     }
 
     public int getStrike() {

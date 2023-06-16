@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class InputView {
 
@@ -13,7 +14,12 @@ public class InputView {
         String input = br.readLine();
         int[] numbers = checkNumberFormat(input);
         if (checkNumberSize(numbers)) {
-            return numbers;
+            if (checkEachNumber(numbers)) {
+                return numbers;
+            } else {
+                ov.inValidNumberMessage();
+                return userInput();
+            }
         } else {
             ov.inValidSizeMessage();
             return userInput();
@@ -33,6 +39,11 @@ public class InputView {
 
     private boolean checkNumberSize(int[] numbers) {
         return numbers.length == 4;
+    }
+
+    private boolean checkEachNumber(int[] numbers) {
+        Set<Integer> set = Arrays.stream(numbers).boxed().collect(Collectors.toSet());
+        return set.size() == 4;
     }
 
 

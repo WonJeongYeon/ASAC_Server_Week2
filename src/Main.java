@@ -7,16 +7,15 @@ public class Main {
         InputView iv = new InputView();
         OutputView ov = new OutputView();
         GameProcess game = new GameProcess();
+
         int[] answer = game.getAnswer();
         System.out.println(Arrays.toString(answer));
 
         boolean gameFlag = false;
         int strike, ball;
         while (!gameFlag) {
-
-            int[] input = iv.userInput();
-            game.setInput(input);
-            System.out.println(Arrays.toString(input));
+//            int[] input = iv.userInput();
+            game.setInput();
             strike = game.getStrike();
             ball = game.getBall();
             if (strike == 4) {
