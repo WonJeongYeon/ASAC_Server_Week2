@@ -12,6 +12,9 @@ public class InputView {
     public int[] userInput() throws IOException {
         ov.inputMessage();
         String input = br.readLine();
+        if (input.equals("-1")) {
+            System.exit(0);
+        }
         int[] numbers = checkNumberFormat(input);
         if (checkNumberSize(numbers)) {
             if (checkEachNumber(numbers)) {
